@@ -1,0 +1,2 @@
+readme.txt use vim to edit.
+nodepadplus.txt use nodepad++.
