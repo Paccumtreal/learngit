@@ -51,7 +51,7 @@
 	隐藏文件.git是repository。目录下存在很多东西，最重要的是暂存区(stage/index)。
 	将文档添加进版本库(git add ...,git commit -m "..."):
 		add-->stage-->commit-->(HEAD指针指向master分支)，master，即当前节点。
-		version1-->version2-->...>versionn-->master(HEAD指向该节点，commit提交过程生成一个版本号，类似地址，十六进制)。回退即告诉版本号，HEAD指针存储版本号，即指向历史版本，该历史版本为当前master。add即将更改的版本放置stage暂存区，由commit注释更改内容，同时系统计算(分配)版本号，HEAD断开以前链接，old master 变为versionN链接新版本master，HEAD指向master。
+		version1-->version2-->...>versionn<--master(master分支指向commit提交版本，即当前版本，commit提交过程生成一个版本号，类似地址，十六进制)。回退指告诉版本号，HEAD指针存储版本号，Head告诉master版本号，master指向历史版本实现回退。add即将更改的版本放置stage暂存区，由commit注释更改内容，同时系统计算(分配)版本号，HEAD指向当前分支master，versionn指向新版本versionN,master指向versionN，HEAD指向master。
 	需要注意的是:commit只提交stage内的内容，没有经过add操作的都不会在status里显示。
 撤销修改：
 	重点：撤销修改只适用于本地版本库，即尚未推送至远程。当然了，即使推送至远程了，也可以想办法解决，即：
