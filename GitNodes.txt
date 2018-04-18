@@ -1,0 +1,63 @@
+一：安装
+	Linux：
+		1.yum -y install git 安装
+		2.git --version 查看当前版本
+		3.git config --global user.name "username"设置git用户
+		4.git config --global user.email "number@example.com" 设置用户邮箱
+		5.找一个适合的地方创建一个文件夹作为git的repertory
+			mkdir leargit
+			cd ./leargit
+			ls -al
+			git init
+			ls -al
+	windows:
+		1.下载安装包，我的百度云盘上有
+		2.安装，自定义即可
+		3.打开git bash
+		4.看见的是一个bash编辑模式，与Linux命令行一样
+		5.同Linux安装步骤的2-5
+	总结：
+	上面的安装实际上是安装和创建版本库(即:仓库repertory)两个步骤。
+二：
+切换版本
+	1.在版本库创建文件
+		用nodepad++(使用UTF-8编码)创建一个文件readme.txt，内容随意。
+	2.git add readme.txt
+	3.git commit -m "add/append/... 修改了什么内容"
+	4.git status
+	5.git diff
+	6.git log 查看git commit 的日志
+	7.git log --pretty=oneline 查看精简版的log信息
+	8.git reset --hard HEAD^
+	 	HEAD^ 回退到上一个版本
+	 	HEAD^^回退到上上个版本
+		...
+		HEAD^~100回退到前100个版本
+	9.git reset --hard 版本号（前面一小段版本号或者全部版本号）
+	10.git reflog查看历史记录，第二天也能回退到第一天的版本。
+	gitk可视化界面
+	注：repository知识库、repertory仓库。上文所说的版本库应是:repository
+文件理解：
+	learngit是目前的工作区
+	隐藏文件.git是repository。目录下存在很多东西，最重要的是暂存区(stage/index)。
+	将文档添加进版本库(git add ...,git commit -m "..."):
+		add-->stage-->commit-->(HEAD指针指向master分支)，master，即当前节点。
+		version1-->version2-->...>versionn-->master(HEAD指向该节点，commit提交过程生成一个版本号，类似地址，十六进制)。回退即告诉版本号，HEAD指针存储版本号，即指向历史版本，该历史版本为当前master。add即将更改的版本放置stage暂存区，由commit注释更改内容，同时系统计算(分配)版本号，HEAD断开以前链接，old master 变为versionN链接新版本master，HEAD指向master。
+	需要注意的是:commit只提交stage内的内容，没有经过add操作的都不会在status里显示。
+撤销修改：
+	重点：撤销修改只适用于本地版本库，即尚未推送至远程。当然了，即使推送至远程了，也可以想办法解决，即：
+		本地：version1-->version2-->erroVersion
+		远程：version1-->version2-->erroVersion
+		本地执行：
+			version1-->version2-->erroVersion-->version2远程即可
+	撤销修改分类：
+		1.回退到以前的版本
+			git reset --hard HEAD^...
+		     or git reset --hard versionN
+		2.仅在工作区修改，尚未add至stage
+			git checkout -- filename
+			注意，如果放到了暂存区stage内，该命令撤销的只是在工作区的修改
+		3.在工作区修改了，并且防止到了stage
+
+
+
