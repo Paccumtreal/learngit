@@ -129,6 +129,18 @@
 	删除分支：
 	git branch -d dev
 分支管理策略：
+	Fast Forward策略，merge branch时不显示分支上的commit操作，只显示最终主分支上存在的commit。
+	一般使用git merge --no-ff -m "describe commit" dev
+	一个团队工作，一般用master稳定分支(长存)，develop开发分支(长存)，feature特性分支，需要时建立，完成时删除，release发布分支，送测时建立，完成时删除，hotfix缺陷分支，修复bug时建立，完成时删除。员工在develop分支上建立自己的时间线分支，做完任务时在develop分支上合并。
+bug(hotfix)分支：
+	在develop分支上工作时，紧急处理其他分支上的bug,使用
+		git stash储存目前的工作状态
+		处理bug分支并合并删除后，返回develop分支
+		git stash apply恢复状态，git stash drop删除存储
+		git stash list 无消息则说明存储已经删掉
+		git stash pop 恢复和删除同时进行。
+feature分支：
+
 		
 
 
