@@ -1,4 +1,4 @@
-一：安装
+﻿一：安装
 	Linux：
 		1.yum -y install git 安装
 		2.git --version 查看当前版本
