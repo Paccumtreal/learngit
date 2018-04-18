@@ -93,6 +93,41 @@
 	step6:在本地git工作区内粘贴命令并执行
 	step7；git push -u origin master 将本地当前的版本推送到了GitHub上。
 	注：origin只是一个别名，可以自己取任意名。
+克隆远程仓库到本地;
+	git clone git@github.com:Paccumtearl/repertory.git
+	git://协议速度最快，至少比https://协议快
+四：分支管理
+	一系列版本加上master就是一个主分支。master指向commit提交版本，HEAD指向当前分支master。
+	如果创建了一个新的分支，当前分支是dev，那么HEAD将自动指向dev
+创建分支与合并分支；
+	查看当前分支：git branch
+	git checkout -b dev 创建并切换至dev分支
+		git branch dev 创建分支
+		git checkout dev 切换分支(这里对比修改撤回git checkout -- file,可见--重要性)
+合并分支：
+	git checkout master
+	git merge dev
+删除分支：
+	git branch -d dev
+冲突解决：
+	情景：
+	dev分支修改版本并commit成功
+	git checkout master
+	master分支修改版本并commit成功
+	git merge dev 引发conflict fixed
+	解决方式:
+	此时编辑文件，将git备注的
+		<<<<<<<<<HEAD
+		==========
+		>>>>>>>>>>dev
+	删掉，保留最终需要的内容即可。
+	then:
+	git add ...
+	git commit -m ...
+	查看分支冲突合并情况
+	git log --graph --pretty=oneline --abbrev-commit
+	删除分支：
+	git branch -d dev
 
 		
 
