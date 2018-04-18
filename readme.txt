@@ -9,4 +9,5 @@ fatal: HttpRequestException encountered.
 处理方法:
 	下载：GCMW-1.14.0.exe 运行安装即可
 	来源：https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/tag/v1.14.0
+	user fast forward
 	
