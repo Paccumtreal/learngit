@@ -128,7 +128,7 @@
 	git log --graph --pretty=oneline --abbrev-commit
 	删除分支：
 	git branch -d dev
-
+分支管理策略：
 		
 
 
