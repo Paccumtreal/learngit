@@ -1,4 +1,13 @@
-﻿一：安装
+﻿解决gitk中文乱码问题：
+	.git版本库下config配置文件添加
+	[gui]
+
+  	encoding = utf-8
+
+	[i18n]
+
+  	commitencoding = {utf-8|gbk}
+一：安装
 	Linux：
 		1.yum -y install git 安装
 		2.git --version 查看当前版本
