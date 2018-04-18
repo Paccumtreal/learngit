@@ -18,7 +18,7 @@
 		5.同Linux安装步骤的2-5
 	总结：
 	上面的安装实际上是安装和创建版本库(即:仓库repertory)两个步骤。
-二：
+二：本地版本库操作
 切换版本
 	1.在版本库创建文件
 		用nodepad++(使用UTF-8编码)创建一个文件readme.txt，内容随意。
@@ -55,9 +55,22 @@
 			git reset --hard HEAD^...
 		     or git reset --hard versionN
 		2.仅在工作区修改，尚未add至stage
-			git checkout -- filename
+			git checkout -- file
 			注意，如果放到了暂存区stage内，该命令撤销的只是在工作区的修改
-		3.在工作区修改了，并且防止到了stage
+		3.在工作区修改了，并且放置到了stage
+			UNstage
+			git reset HEAD file
+			这样git status内就仅有在工作区修改的信息
+			git checkout -- file
+			git status 就只有默认信息了
+删除文件：
+	rm file 工作区内删除，但.git版本库内还有信息
+	删除版本库内信息：git rm file 文件永久删除
+	找回已经删除了的文件：git checkout -- file
+	对比扯袖修改2可以知道：git checkeout -- file 实际上就是一键还原，即还原至master文件
+三：远程仓库
+	
+		
 
 
 
