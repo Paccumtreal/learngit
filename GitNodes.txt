@@ -78,7 +78,22 @@
 	找回已经删除了的文件：git checkout -- file
 	对比扯袖修改2可以知道：git checkeout -- file 实际上就是一键还原，即还原至master文件
 三：远程仓库
-	
+	step1:sign up one github account
+	step2:git.bash内创建ssh密钥
+		ssh-keygen -t rsa -C "number@example.com" 免密就不要设置密码,一直按enter键
+		cd ~
+		cd .ssh
+		cat id_rsa.pub.rsa
+		复制
+	step3:sign in github
+		右上角settings,ssh,creat a new ssh
+		取名，粘贴ssh公钥密码
+	step4:右上角create a new repertory
+	step5:复制提示信息git remote add origin ...
+	step6:在本地git工作区内粘贴命令并执行
+	step7；git push -u origin master 将本地当前的版本推送到了GitHub上。
+	注：origin只是一个别名，可以自己取任意名。
+
 		
 
 
