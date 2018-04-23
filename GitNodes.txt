@@ -140,8 +140,45 @@ bug(hotfix)分支：
 		git stash list 无消息则说明存储已经删掉
 		git stash pop 恢复和删除同时进行。
 feature分支：
-
-		
-
+多人协作：
+	用户克隆远程版本库并推送dev分支
+	git clone git@github.com:paccumtreal/learngit.git
+	cd learngit
+	git config --global user.name "..."
+	git config --global user.email "..."
+	git branch
+	git checkout -b dev origin/dev
+	vi testfile
+	git add testfile
+	git commit -m "..."
+	git push origin dev
+	user推送dev解决合并问题;
+	git status
+	git checkout dev
+	vi testfile
+	git add testfile
+	git commit -m "......"
+	尝试推送dev：git push origin dev
+	关联dev和远程dev：git branch --set-upstream dev origin/dev
+	尝试抓取远程dev兵合并：git pull
+	git status
+	解决conflict：vi testfile
+	git add testfile
+	git commit -m "......."
+	git push origin dev
+五：标签管理
+创建标签：
+ 	git tag v1.0 给当前分支打上标签
+	git tag v1.0 commit-id 给历史版本打上标签
+	git tag -a v1.0 -m "version 1.0 released" commit-id 给历史版本打上带有说明文字的标签
+	git tag -s v1.0 -m "...." commit-id 给历史版本打上PGP标签（私钥签名），该标签不可伪造，可以验证PGP签名。使用前提是要安装gpg(GnuPG)，详情参考帮助文档。
+使用标签：
+	git tag 查看当前有哪些标签
+	git show v1.0
+	git tag -d v1.0 删除标签
+	git push origin :refs/tags/v1.0 删除远程标签
+	git push origin v1.0 推送本地标签
+	git push origin --tags 推送全部没有推送过的本地标签
+ceshi
 
 
